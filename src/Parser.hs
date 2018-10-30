@@ -19,3 +19,12 @@ data SemVer = SemVer
   , getRelease  :: Release
   , getMetadata :: Metadata
   } deriving (Eq, Show)
+
+parseSemVer :: Parser SemVer
+parseSemVer = do
+  major <- integer
+  char '.'
+  minor <- integer
+  char '.'
+  patch <- integer
+  pure (SemVer major minor patch [] [])
