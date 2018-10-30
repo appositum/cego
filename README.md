@@ -1,2 +1,2 @@
 # cego
-A semantic versioning parser
+A SemVer parser ([Haskell From First Principles](http://haskellbook.com/) exercise).
