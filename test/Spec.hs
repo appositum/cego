@@ -33,7 +33,7 @@ main = hspec $ do
           res `shouldBe` SemVer 1 0 0 [NOSS "alpha"] [NOSI 1]
 
     it "1.0.0+20130313144700" $ do
-      case parsse "1.0.0+20130313144700" of
+      case parse "1.0.0+20130313144700" of
         Failure err -> fail (show err)
         Success res ->
           res `shouldBe` SemVer 1 0 0 [] [NOSI 20130313144700]
@@ -66,6 +66,6 @@ main = hspec $ do
     it "6.6.6-alpha+exp.opa.0312ff03.1.2" $ do
       case parse "6.6.6-alpha+exp.opa.0312ff03.1.2" of
         Failure err -> fail (show err)
-        Success err ->
+        Success res ->
           res `shouldBe` SemVer 6 6 6 [NOSS "alpha"]
               [NOSS "exp", NOSS "opa", NOSS "0312ff03", NOSI 1, NOSI 2]
